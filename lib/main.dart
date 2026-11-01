@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(),
+      home: const Home(),
       routes: {
         // '0': (context) => Vpizza(),
         // '1': (context) => Chpizza(),
