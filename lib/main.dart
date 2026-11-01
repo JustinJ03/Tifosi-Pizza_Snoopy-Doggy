@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'pages/home.dart';
 
-// import 'chpizza.dart';
-// import 'facebook.dart';
-// import 'twitter.dart';
-// import 'vpizza.dart';
-// import 'fries.dart';
+// import 'pages/chpizza.dart';
+// import 'pages/facebook.dart';
+// import 'pages/twitter.dart';
+// import 'pages/vpizza.dart';
+// import 'pages/fries.dart';
 //uncomment the above imports if you want to use them in your app
 
 void main() {
