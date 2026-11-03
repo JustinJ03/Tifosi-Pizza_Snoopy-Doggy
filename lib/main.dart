@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
         '1': (context) => AboutPage(),
         '2': (context) => FacebookPage(),
         // '3': (context) => Twitter(),
-        '/facebook': (context) => const FacebookPage(),
         //uncomment the above routes if you want to use them in your app
       },
     );

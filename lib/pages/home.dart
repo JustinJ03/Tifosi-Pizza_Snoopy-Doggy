@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'facebook.dart' show openFacebook;
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -28,11 +29,10 @@ class Home extends StatelessWidget {
           const SizedBox(width: 8.0),
           //facebook page
           IconButton(
+            tooltip: 'Open Facebook',
             iconSize: 64.0,
             icon: Image.asset('assets/images/facebook.png'),
-            onPressed: () {
-              Navigator.pushNamed(context, '2');
-            },
+            onPressed: () => openFacebook(context),
           ),
           const SizedBox(width: 8.0),
 
