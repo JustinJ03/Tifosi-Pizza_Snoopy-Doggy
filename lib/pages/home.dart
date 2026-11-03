@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'about.dart';
 import 'contact.dart';
 
@@ -38,19 +39,13 @@ class Home extends StatelessWidget {
             onPressed: () {
               Navigator.pushNamed(context, '1');
             },
-            child: const Text(
-              'About',
-              style: TextStyle(color: Colors.white),
-            ),
+            child: const Text('About', style: TextStyle(color: Colors.white)),
           ),
           TextButton(
             onPressed: () {
               Navigator.pushNamed(context, '0');
             },
-            child: const Text(
-              'Contact',
-              style: TextStyle(color: Colors.white),
-            ),
+            child: const Text('Contact', style: TextStyle(color: Colors.white)),
           ),
           const SizedBox(width: 8.0),
         ],

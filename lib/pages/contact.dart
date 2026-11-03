@@ -61,7 +61,9 @@ class _ContactPageState extends State<ContactPage> {
                           color: Colors.deepOrange,
                         ),
                         title: Text('Address'),
-                        subtitle: Text('WOW Pizza, UNIMAS, 94300 Kota Samarahan, Sarawak.'),
+                        subtitle: Text(
+                          'WOW Pizza, UNIMAS, 94300 Kota Samarahan, Sarawak.',
+                        ),
                       ),
                     ],
                   ),
