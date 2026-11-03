@@ -1,5 +1,28 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+
+final _facebookUrl = Uri.parse('https://www.facebook.com/pizzawowoficial/');
+
+Future<void> openFacebook(BuildContext context) async {
+  // Launch from the click handler so browsers allow the new tab.
+  try {
+    if (await launchUrl(
+      _facebookUrl,
+      mode: LaunchMode.externalApplication,
+      webOnlyWindowName: '_blank',
+    )) {
+      return;
+    }
+  } catch (_) {
+    // Show feedback if the platform cannot open the link.
+  }
+  if (!context.mounted) return;
+  ScaffoldMessenger.of(context).showSnackBar(
+    const SnackBar(content: Text('Could not open Facebook. Please try again.')),
+  );
+}
 
 class FacebookPage extends StatefulWidget {
   const FacebookPage({super.key});
@@ -9,11 +32,20 @@ class FacebookPage extends StatefulWidget {
 }
 
 class _FacebookPageState extends State<FacebookPage> {
-  late final WebViewController controller;
+  WebViewController? controller;
 
   @override
   void initState() {
     super.initState();
+    // Browsers and unsupported desktop platforms must not create a native WebView.
+    if (kIsWeb ||
+        !{
+          TargetPlatform.android,
+          TargetPlatform.iOS,
+          TargetPlatform.macOS,
+        }.contains(defaultTargetPlatform)) {
+      return;
+    }
     controller = WebViewController()
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..setUserAgent(
@@ -30,7 +62,7 @@ class _FacebookPageState extends State<FacebookPage> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://mbasic.facebook.com/PizzaHut/'));
+      ..loadRequest(_facebookUrl);
   }
 
   @override
@@ -41,7 +73,15 @@ class _FacebookPageState extends State<FacebookPage> {
         backgroundColor: Colors.deepOrange,
         iconTheme: const IconThemeData(color: Colors.white),
       ),
-      body: WebViewWidget(controller: controller),
+      body: controller != null
+          ? WebViewWidget(controller: controller!)
+          : Center(
+              child: ElevatedButton.icon(
+                onPressed: () => openFacebook(context),
+                icon: const Icon(Icons.open_in_new),
+                label: const Text('Open Facebook'),
+              ),
+            ),
     );
   }
 }

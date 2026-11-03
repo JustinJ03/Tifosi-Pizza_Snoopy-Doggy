@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'facebook.dart' show openFacebook;
+
 class Home extends StatelessWidget {
   const Home({super.key});
 
@@ -17,17 +19,21 @@ class Home extends StatelessWidget {
           ),
         ),
         actions: [
-          // Social icons
-          Image.asset(
-            'assets/images/twitter.jpg',
-            fit: BoxFit.contain,
-            height: 24,
+          // twitter page
+          IconButton(
+            iconSize: 64.0,
+            icon: Image.asset('assets/images/twitter.jpg'),
+            onPressed: () {
+              Navigator.pushNamed(context, '3');
+            },
           ),
           const SizedBox(width: 8.0),
-          Image.asset(
-            'assets/images/facebook.png',
-            fit: BoxFit.contain,
-            height: 24,
+          //facebook page
+          IconButton(
+            tooltip: 'Open Facebook',
+            iconSize: 64.0,
+            icon: Image.asset('assets/images/facebook.png'),
+            onPressed: () => openFacebook(context),
           ),
           const SizedBox(width: 8.0),
 
