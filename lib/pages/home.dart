@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'about.dart';
-import 'contact.dart';
-
 class Home extends StatelessWidget {
   const Home({super.key});
 
