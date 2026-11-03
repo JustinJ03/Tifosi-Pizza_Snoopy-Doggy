@@ -24,12 +24,7 @@ void main() {
     expect(find.text('WOW Pizza'), findsOneWidget);
 
     // Verify the menu options and greeting shown to the customer.
-    expect(
-      find.widgetWithText(OutlinedButton, 'Vegetable Pizza'),
-      findsOneWidget,
-    );
-    expect(find.widgetWithText(OutlinedButton, 'Cheese Pizza'), findsOneWidget);
-    expect(find.widgetWithText(OutlinedButton, 'Fries'), findsOneWidget);
+    expect(find.widgetWithText(OutlinedButton, 'Menu'), findsOneWidget);
     expect(
       find.text("Hi, I'm the Pizza Assistant, what can I help you order?"),
       findsOneWidget,

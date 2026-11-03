@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'pages/home.dart';
 import 'pages/about.dart';
 import 'pages/contact.dart';
-// import 'pages/twitter.dart';
+import 'pages/menu.dart';
 import 'pages/facebook.dart';
 
 // import 'pages/vpizza.dart';
@@ -28,6 +28,7 @@ class MyApp extends StatelessWidget {
         '0': (context) => ContactPage(),
         '1': (context) => AboutPage(),
         '2': (context) => FacebookPage(),
+        '4': (context) => MenuPage(),
         // '3': (context) => Twitter(),
         //uncomment the above routes if you want to use them in your app
       },
