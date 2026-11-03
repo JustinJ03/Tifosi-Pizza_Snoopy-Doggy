@@ -24,11 +24,14 @@ class Home extends StatelessWidget {
               fit: BoxFit.contain,
               height: 30,
             ),
-            SizedBox(width: 10.0),
-            Image.asset(
-              'assets/images/facebook.png',
-              fit: BoxFit.contain,
-              height: 60,
+            const SizedBox(width: 10.0),
+            GestureDetector(
+              onTap: () => Navigator.pushNamed(context, '/facebook'),
+              child: Image.asset(
+                'assets/images/facebook.png',
+                fit: BoxFit.contain,
+                height: 60,
+              ),
             ),
           ],
         ),

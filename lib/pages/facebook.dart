@@ -30,7 +30,11 @@ class _FacebookPageState extends State<FacebookPage> {
           },
         ),
       )
-      ..loadRequest(Uri.parse('https://mbasic.facebook.com/PizzaHut/'));
+      ..loadRequest(
+        Uri.parse(
+          'https://www.facebook.com/pizzawowoficial?rdid=rpDKVu6a4bmzwlBi&share_url=https%253A%252F%252Fwww.facebook.com%252Fshare%252F18aV6HafeH%252F&checkpoint_src=any#',
+        ),
+      );
   }
 
   @override

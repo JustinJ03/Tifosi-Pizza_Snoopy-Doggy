@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'pages/home.dart';
+import 'pages/facebook.dart';
 
 // import 'chpizza.dart';
-// import 'facebook.dart';
 // import 'twitter.dart';
 // import 'vpizza.dart';
 // import 'fries.dart';
@@ -19,13 +19,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'WOW Pizza',
       home: const Home(),
       routes: {
         // '0': (context) => Vpizza(),
         // '1': (context) => Chpizza(),
         // '2': (context) => Fries(),
         // '3': (context) => Twitter(),
-        // '4': (context) => Facebook(),
+        '/facebook': (context) => const FacebookPage(),
         //uncomment the above routes if you want to use them in your app
       },
     );
