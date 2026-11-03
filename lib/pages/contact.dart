@@ -8,7 +8,6 @@ class ContactPage extends StatefulWidget {
 }
 
 class _ContactPageState extends State<ContactPage> {
-  final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
   final _messageController = TextEditingController();
@@ -19,20 +18,6 @@ class _ContactPageState extends State<ContactPage> {
     _emailController.dispose();
     _messageController.dispose();
     super.dispose();
-  }
-
-  void _sendMessage() {
-    if (_formKey.currentState?.validate() ?? false) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Thank you! Your message has been sent.'),
-          backgroundColor: Colors.deepOrange,
-        ),
-      );
-      _nameController.clear();
-      _emailController.clear();
-      _messageController.clear();
-    }
   }
 
   @override
@@ -61,7 +46,7 @@ class _ContactPageState extends State<ContactPage> {
                       ListTile(
                         leading: Icon(Icons.phone, color: Colors.deepOrange),
                         title: Text('Phone'),
-                        subtitle: Text('+1 (555) 123-4567'),
+                        subtitle: Text('012-345 6789'),
                       ),
                       Divider(),
                       ListTile(
@@ -76,96 +61,10 @@ class _ContactPageState extends State<ContactPage> {
                           color: Colors.deepOrange,
                         ),
                         title: Text('Address'),
-                        subtitle: Text('123 Pizza Boulevard, Flavor Town, CA'),
+                        subtitle: Text('WOW Pizza, UNIMAS, 94300 Kota Samarahan, Sarawak.'),
                       ),
                     ],
                   ),
-                ),
-              ),
-              const SizedBox(height: 24),
-              const Text(
-                'Send Us a Message',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepOrange,
-                ),
-              ),
-              const SizedBox(height: 12),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: _nameController,
-                      decoration: const InputDecoration(
-                        labelText: 'Name',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.person),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please enter your name';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 12),
-                    TextFormField(
-                      controller: _emailController,
-                      keyboardType: TextInputType.emailAddress,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.email_outlined),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please enter your email';
-                        }
-                        if (!value.contains('@')) {
-                          return 'Please enter a valid email';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 12),
-                    TextFormField(
-                      controller: _messageController,
-                      maxLines: 4,
-                      decoration: const InputDecoration(
-                        labelText: 'Message',
-                        border: OutlineInputBorder(),
-                        alignLabelWithHint: true,
-                      ),
-                      validator: (value) {
-                        if (value == null || value.trim().isEmpty) {
-                          return 'Please enter your message';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      width: double.infinity,
-                      child: ElevatedButton.icon(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.deepOrange,
-                          foregroundColor: Colors.white,
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        ),
-                        onPressed: _sendMessage,
-                        icon: const Icon(Icons.send),
-                        label: const Text(
-                          'Submit',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ),
-                    ),
-                  ],
                 ),
               ),
             ],
