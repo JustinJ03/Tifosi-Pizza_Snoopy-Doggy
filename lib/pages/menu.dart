@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class MenuPage extends StatelessWidget {
@@ -18,10 +17,7 @@ class MenuPage extends StatelessWidget {
           children: [
             const Text(
               'WOW Pizza Menu',
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
 
             const SizedBox(height: 20),

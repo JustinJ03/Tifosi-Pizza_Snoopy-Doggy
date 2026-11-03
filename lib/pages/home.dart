@@ -59,7 +59,7 @@ class Home extends StatelessWidget {
             // Horizontal scrollable row for buttons
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0),
               child: Row(
                 children: [
                   OutlinedButton(
@@ -73,7 +73,6 @@ class Home extends StatelessWidget {
                     child: const Text(
                       'Menu',
                       style: TextStyle(fontSize: 20.0, color: Colors.orange),
-
                     ),
                   ),
                 ],
