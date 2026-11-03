@@ -8,33 +8,49 @@ class Home extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
-        title: Row(
-          children: [
-            Text(
-              'WOW Pizza',
-              style: TextStyle(
-                fontSize: 20.0,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(width: 160.0),
-            Image.asset(
-              'assets/images/twitter.jpg',
-              fit: BoxFit.contain,
-              height: 30,
-            ),
-            const SizedBox(width: 10.0),
-            GestureDetector(
-              onTap: () => Navigator.pushNamed(context, '/facebook'),
-              child: Image.asset(
-                'assets/images/facebook.png',
-                fit: BoxFit.contain,
-                height: 60,
-              ),
-            ),
-          ],
+        title: const Text(
+          'WOW Pizza',
+          style: TextStyle(
+            fontSize: 20.0,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
+        actions: [
+          // twitter page
+          IconButton(
+            iconSize: 64.0,
+            icon: Image.asset('assets/images/twitter.jpg'),
+            onPressed: () {
+              Navigator.pushNamed(context, '3');
+            },
+          ),
+          const SizedBox(width: 8.0),
+          //facebook page
+          IconButton(
+            iconSize: 64.0,
+            icon: Image.asset('assets/images/facebook.png'),
+            onPressed: () {
+              Navigator.pushNamed(context, '2');
+            },
+          ),
+          const SizedBox(width: 8.0),
+
+          // Navigation buttons
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '1');
+            },
+            child: const Text('About', style: TextStyle(color: Colors.white)),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '0');
+            },
+            child: const Text('Contact', style: TextStyle(color: Colors.white)),
+          ),
+          const SizedBox(width: 8.0),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +66,7 @@ class Home extends StatelessWidget {
                       side: const BorderSide(color: Colors.red),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '0');
+                      Navigator.pushNamed(context, '5');
                     },
                     child: const Text(
                       'Vegetable Pizza',
@@ -64,7 +80,7 @@ class Home extends StatelessWidget {
                       side: const BorderSide(color: Colors.red),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '1');
+                      Navigator.pushNamed(context, '6');
                     },
                     child: const Text(
                       'Cheese Pizza',
@@ -78,7 +94,7 @@ class Home extends StatelessWidget {
                       side: const BorderSide(color: Colors.red),
                     ),
                     onPressed: () {
-                      Navigator.pushNamed(context, '2');
+                      Navigator.pushNamed(context, '7');
                     },
                     child: const Text(
                       'Fries',
