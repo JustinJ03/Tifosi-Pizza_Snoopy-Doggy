@@ -5,6 +5,7 @@ import 'pages/about.dart';
 import 'pages/contact.dart';
 import 'pages/menu.dart';
 import 'pages/facebook.dart';
+import 'pages/twitter.dart';
 
 // import 'pages/vpizza.dart';
 // import 'pages/chpizza.dart';
@@ -29,8 +30,7 @@ class MyApp extends StatelessWidget {
         '1': (context) => AboutPage(),
         '2': (context) => FacebookPage(),
         '4': (context) => MenuPage(),
-        // '3': (context) => Twitter(),
-        //uncomment the above routes if you want to use them in your app
+        '3': (context) => TwitterPage(),
       },
     );
   }
