@@ -11,9 +11,10 @@ class MenuPage extends StatelessWidget {
         backgroundColor: Colors.deepOrange,
       ),
 
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
               'WOW Pizza Menu',
@@ -22,11 +23,29 @@ class MenuPage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            const Text('1. Vegetarian Pizza - RM15'),
-            const Text('2. Chicken Pizza - RM18'),
-            const Text('3. French Fries - RM8'),
+            Expanded(
+              child: ListView(
+                children: [
+                  menuItem(
+                    'Vegetarian Pizza',
+                    'RM15',
+                    'https://images.unsplash.com/photo-1579751626657-72bc17010498?w=500',
+                  ),
 
-            const SizedBox(height: 20),
+                  menuItem(
+                    'Chicken Pizza',
+                    'RM18',
+                    'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500',
+                  ),
+
+                  menuItem(
+                    'French Fries',
+                    'RM8',
+                    'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=500',
+                  ),
+                ],
+              ),
+            ),
 
             ElevatedButton(
               onPressed: () {
@@ -36,6 +55,57 @@ class MenuPage extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget menuItem(String name, String price, String imageUrl) {
+    return Card(
+      margin: const EdgeInsets.only(bottom: 15),
+
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.network(
+            imageUrl,
+            height: 180,
+            width: double.infinity,
+            fit: BoxFit.cover,
+
+            errorBuilder: (context, error, stackTrace) {
+              return const SizedBox(
+                height: 180,
+                child: Center(child: Icon(Icons.broken_image, size: 50)),
+              );
+            },
+          ),
+
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  name,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+
+                Text(
+                  price,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: Colors.deepOrange,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
